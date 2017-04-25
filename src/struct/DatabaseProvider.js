@@ -1,19 +1,25 @@
 
 /**
- * Sequelize database handler
+ * Abstract named Database Provider
  * @abstract
  */
-/* eslint-disable no-unused-vars, valid-jsdoc */
 class DatabaseProvider {
+
     constructor() {
+        if (this.constructor.name === 'DatabaseProvider') {
+            throw new Error('DatabaseProvider cannot be initlialised if used as a base.');
+        }
     }
+
     /**
      * Opens and initialises the Sequelize database
      * @param {AkairoClient} client - Client using the provider
      * @return {Promise<any>}
      * @abstract
      */
-    open(client) { }
+    open(client) {
+        throw new Error(`${this.constructor.name} does not have an 'open' method.`);
+    }
 
     /**
      * Obtain data from a table in the defined database
@@ -23,7 +29,9 @@ class DatabaseProvider {
      * @return {any} - Returns the queried data
      * @abstract
      */
-    add(table, key, data) { }
+    add(table, key, data) {
+        throw new Error(`${this.constructor.name} does not have an 'add' method.`);
+    }
 
     /**
      * Obtain data from a table in the defined database
@@ -32,7 +40,9 @@ class DatabaseProvider {
      * @return {any} - Returns the queried data
      * @abstract
      */
-    query(table, key) { }
+    query(table, key) {
+        throw new Error(`${this.constructor.name} does not have a 'query' method.`);
+    }
 
     /**
      * Allows execution of a raw SQL query to the database via Sequelize
@@ -42,7 +52,9 @@ class DatabaseProvider {
      * @returns {any} Returns query information
      * @abstract
      */
-    queryRaw(query, options = {}) { }
+    queryRaw(query, options = {}) {
+        throw new Error(`${this.constructor.name} does not have a 'queryRaw' method.`);
+    }
 }
 
 module.exports = DatabaseProvider;
