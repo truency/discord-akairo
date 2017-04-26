@@ -12,6 +12,8 @@ module.exports = {
     Listener: require('./struct/Listener'),
     ListenerHandler: require('./struct/ListenerHandler'),
     SQLiteHandler: require('./struct/SQLiteHandler'),
+    DatabaseProvider: require('./struct/DatabaseProvider'),
+    SequelizeHandler: require('./struct/SequelizeHandler'),
     TypeResolver: require('./struct/TypeResolver'),
     Category: require('./util/Category'),
     Constants: require('./util/Constants'),

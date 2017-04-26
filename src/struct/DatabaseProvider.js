@@ -17,7 +17,7 @@ class DatabaseProvider {
      * @return {Promise<any>}
      * @abstract
      */
-    open(client) {
+    open() {
         throw new Error(`${this.constructor.name} does not have an 'open' method.`);
     }
 

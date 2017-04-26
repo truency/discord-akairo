@@ -85,15 +85,6 @@ module.exports = {
         SAVE: 'save',
         SAVE_ALL: 'saveAll'
     },
-    DatabaseHandlerEvents: {
-        INIT: 'init',
-        ADD: 'add',
-        REMOVE: 'remove',
-        SET: 'set',
-        SAVE: 'save',
-        SAVE_ALL: 'saveAll',
-        QUERY: 'query' 
-    },
     BuiltInReasons: {
         NOT_SELF: 'notSelf',
         CLIENT: 'client',
