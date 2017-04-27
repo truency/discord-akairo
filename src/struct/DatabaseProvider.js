@@ -17,14 +17,14 @@ class DatabaseProvider {
      * @return {Promise<any>}
      * @abstract
      */
-    open() {
+    open(client) {
         throw new Error(`${this.constructor.name} does not have an 'open' method.`);
     }
 
     /**
      * Obtain data from a table in the defined database
      * @param {string} table - The table in the database (defaults to guild)
-     * @param {string} key - The name of the cell in the table to add
+     * @param {string|object} key - The name of the cell in the table to add
      * @param {string|object} data - Data to set in the key cell.
      * @return {any} - Returns the queried data
      * @abstract
@@ -34,27 +34,26 @@ class DatabaseProvider {
     }
 
     /**
-     * Obtain data from a table in the defined database
-     * @param {string} table - The table in the database (defaults to guild)
-     * @param {string} key - Name of data in the table to grab
-     * @return {any} - Returns the queried data
+     * Remove data from the table
+     * @param {string} table 
+     * @param {string|object} key
+     * @return {any}
      * @abstract
      */
-    query(table, key) {
-        throw new Error(`${this.constructor.name} does not have a 'query' method.`);
+    delete(table, key) {
+        throw new Error(`${this.constructor.name} does not have a 'remove' method.`);
     }
 
     /**
-     * Allows execution of a raw SQL query to the database via Sequelize
-     * @param {string} query SQL Query
-     * @param {object} options [plain=false, raw=false] Allows use of either getting 
-     * table as plain text data, or pure raw table data.
-     * @returns {any} Returns query information
+     * Closes the database
+     * @param {AkairoClient} client - Client using the provider
+     * @return {Promise<any>}
      * @abstract
      */
-    queryRaw(query, options = {}) {
-        throw new Error(`${this.constructor.name} does not have a 'queryRaw' method.`);
+    close(client) {
+        throw new Error(`${this.constructor.name} does not have a 'close' method`);
     }
+    
 }
 
 module.exports = DatabaseProvider;
