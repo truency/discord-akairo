@@ -34,6 +34,11 @@ module.exports = class SequelizeHandler extends DatabaseProvider {
     }
 
     /**
+     * @todo logic for add, remove, close, query, and queryRaw for
+     *       user clients using sequelize
+     */
+
+    /**
      * Obtain data from a table in the defined database
      * @param {string} table - The table in the database (defaults to guild)
      * @param {string} key - The name of the cell in the table to add
@@ -41,6 +46,26 @@ module.exports = class SequelizeHandler extends DatabaseProvider {
      * @return {any} - Returns the queried data
      */
     add(table, key, data) {
+
+    }
+
+    /**
+     * Remove data from the table
+     * @param {string} table 
+     * @param {string|object} key
+     * @return {any}
+     */
+    remove(table, key) {
+
+    }
+    
+    /**
+     * Closes the database
+     * @param {AkairoClient} client - Client using the provider
+     * @return {Promise<any>}
+     * @abstract
+     */
+    close(client) {
 
     }
 
@@ -64,4 +89,5 @@ module.exports = class SequelizeHandler extends DatabaseProvider {
     queryRaw(query, options = {}) {
 
     }
+
 }
