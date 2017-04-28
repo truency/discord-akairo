@@ -13,11 +13,10 @@ class DatabaseProvider {
 
     /**
      * Opens and initialises the Sequelize database
-     * @param {AkairoClient} client - Client using the provider
      * @return {Promise<any>}
      * @abstract
      */
-    open(client) {
+    open() {
         throw new Error(`${this.constructor.name} does not have an 'open' method.`);
     }
 
@@ -46,11 +45,10 @@ class DatabaseProvider {
 
     /**
      * Closes the database
-     * @param {AkairoClient} client - Client using the provider
      * @return {Promise<any>}
      * @abstract
      */
-    close(client) {
+    close() {
         throw new Error(`${this.constructor.name} does not have a 'close' method`);
     }
     

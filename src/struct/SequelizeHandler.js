@@ -61,11 +61,9 @@ module.exports = class SequelizeHandler extends DatabaseProvider {
     
     /**
      * Closes the database
-     * @param {AkairoClient} client - Client using the provider
      * @return {Promise<any>}
-     * @abstract
      */
-    close(client) {
+    close() {
 
     }
 
